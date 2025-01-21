@@ -1,0 +1,80 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppCorridas</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+</head>
+<body>
+    <div class="card">
+        <div class="user-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+
+        <input type="text" class="input-field" placeholder="Origem">
+        <input type="text" class="input-field" placeholder="Destino">
+
+        <button class="add-stop-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Adicionar parada
+        </button>
+
+        <div class="vehicle-options">
+            <button class="vehicle-btn selected" onclick="selectVehicle(this, 'car')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"></path>
+                    <circle cx="6.5" cy="16.5" r="2.5"></circle>
+                    <circle cx="16.5" cy="16.5" r="2.5"></circle>
+                </svg>
+            </button>
+            <button class="vehicle-btn" onclick="selectVehicle(this, 'bike')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 12h4l-4-8H8l4 8z"></path>
+                    <circle cx="5" cy="19" r="3"></circle>
+                    <circle cx="19" cy="19" r="3"></circle>
+                    <path d="M12 12v3m0 0 3 3m-3-3-3 3"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="ad-space">
+            Espaço para anúncios
+        </div>
+
+        <button class="confirm-btn">Confirmar corrida</button>
+    </div>
+
+    <script>
+        function selectVehicle(button, type) {
+            // Remove selected class from all vehicle buttons
+            document.querySelectorAll('.vehicle-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            // Add selected class to clicked button
+            button.classList.add('selected');
+        }
+
+        // Add stop functionality
+        document.querySelector('.add-stop-btn').addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'input-field';
+            input.placeholder = 'Destino';
+
+            // Insert before the add stop button
+            this.parentNode.insertBefore(input, this);
+        });
+    </script>
+</body>
+</html>
