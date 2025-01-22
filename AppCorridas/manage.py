@@ -9,7 +9,6 @@ import sys
 #4-Redirecionar o usuario para o aplicativo
 #anuncios
 
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'setup.settings')
