@@ -8,7 +8,6 @@ def index(request):
         if form.is_valid():
             origem = form["origem"].value()
             destino = form["destino"].value()
-            print(origem,destino)
 
 
     return render(request,'index.html',{"form":form})
