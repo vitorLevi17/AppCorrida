@@ -3,8 +3,8 @@
 import os
 import sys
 
-#1-Usuario buscar endereços
-#2-Sistema salvar endereços (lista?/BD?/Dicionario?)
+#1-Usuario buscar endereços Sugestão de endereço
+#2-Sistema salvar endereços (lista?/BD?)
 #3-Enviar para os aplicativos e receber os preços
 #4-Redirecionar o usuario para o aplicativo
 #anuncios

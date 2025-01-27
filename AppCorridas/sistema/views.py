@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from .forms import Corrida
+import googlemaps
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+mapas = googlemaps.Client(key=os.getenv('MAPS'))
 def index(request):
     form = Corrida()
     if request.method == 'POST':
@@ -9,5 +14,14 @@ def index(request):
             origem = form["origem"].value()
             destino = form["destino"].value()
 
+            origem_data = mapas.geocode(origem)
+            destino_data = mapas.geocode(destino)
+
+            lat_origem = round(origem_data[0]['geometry']['location']['lat'],6)
+            lon_origem = round(origem_data[0]['geometry']['location']['lng'],6)
+
+            lat_destino = round(destino_data[0]['geometry']['location']['lat'], 6)
+            lon_destino = round(destino_data[0]['geometry']['location']['lng'], 6)
+            print(lat_origem,lon_origem,lat_destino,lon_destino)
 
     return render(request,'index.html',{"form":form})
