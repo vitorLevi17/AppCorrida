@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 mapas = googlemaps.Client(key=os.getenv('MAPS'))
 def index(request):
+    maps = os.getenv('MAPS')
     form = Corrida()
     if request.method == 'POST':
         form = Corrida(request.POST)
@@ -24,4 +25,4 @@ def index(request):
             lon_destino = round(destino_data[0]['geometry']['location']['lng'], 6)
             print(lat_origem,lon_origem,lat_destino,lon_destino)
 
-    return render(request,'index.html',{"form":form})
+    return render(request,'index.html',{"form":form,"MAPS":maps})
