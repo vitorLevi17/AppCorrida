@@ -79,6 +79,14 @@
             autocomplete.addListener("place_changed",function(){
                 const lugar = autocomplete.getPlace()
                 })
+            const input2 = document.getElementById("destino_campo")
+            const autocomplete1 = new google.maps.places.Autocomplete(input2, {
+                types: ["geocode"],
+                componentRestrictions:{country:"br"}
+                })
+                autocomplete1.addListener("place_changed",function(){
+                const lugar = autocomplete.getPlace()
+                })
         }
     </script>
 </body>
