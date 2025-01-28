@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AppCorridas</title>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initAutocomplete"></script>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
@@ -20,6 +21,7 @@
         <form method="POST">
             {% csrf_token %}
             <input
+                id="origem_campo"
                 type="text"
                 name="origem"
                 class="input-field"
@@ -27,6 +29,7 @@
                 value="{{ form.origem.value|default:'' }}"
             >
             <input
+                id="destino_campo"
                 type="text"
                 name="destino"
                 class="input-field"
@@ -66,6 +69,17 @@
             <button type="submit" class="confirm-btn">Confirmar corrida</button>
         </form>
     </div>
-    <script src="{% static 'scriptIndex.js' %}"></script>
+    <script>
+        function initAutocomplete(){
+            const input1 = document.getElementById("origem_campo")
+            const autocomplete = new google.maps.places.Autocomplete(input1, {
+                types: ["geocode"],
+                componentRestrictions:{country:"br"}
+                })
+            autocomplete.addListener("place_changed",function(){
+                const lugar = autocomplete.getPlace()
+                })
+        }
+    </script>
 </body>
 </html>
