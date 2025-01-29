@@ -24,7 +24,7 @@ def index(request):
             lat_destino = round(destino_data[0]['geometry']['location']['lat'], 6)
             lon_destino = round(destino_data[0]['geometry']['location']['lng'], 6)
 
-            coordenadas = [lat_origem, lon_origem, lat_destino, lon_destino]
+            print(lat_origem, lon_origem, lat_destino, lon_destino)
             return redirect('comparar')
     return render(request,'index.html',{"form":form,"MAPS":maps})
 
