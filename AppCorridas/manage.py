@@ -3,7 +3,7 @@
 import os
 import sys
 
-#2-Sistema salvar endereços (sessions,lista)
+#2-Sistema salvar coordenadas
 #3-Enviar para os aplicativos e receber os preços
 #4-Redirecionar o usuario para o aplicativo
 #anuncios
