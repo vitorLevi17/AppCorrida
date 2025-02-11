@@ -1,7 +1,8 @@
 from django import forms
+
+#Formulario para receber do usuario os endereços de origem e destino
+#Para o formulario ser validado, ambos os campos devem ser preenchidos
 class Corrida(forms.Form):
-    #uber 4 paradas e destino
-    #99pop e indriver 2 paradas e destino
     origem = forms.CharField(
         label="Origem",
         required=True,
@@ -11,38 +12,6 @@ class Corrida(forms.Form):
             }
         )
     )
-    # parada1 = forms.CharField(
-    #     label="Parada 1",
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder": "Insira o local da parada"
-    #         }
-    #     )
-    # )
-    # parada2 = forms.CharField(
-    #     label="Parada 1",
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder": "Insira o local da parada"
-    #         }
-    #     )
-    # )
-    # parada3 = forms.CharField(
-    #     label="Parada 1",
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder": "Insira o local da parada"
-    #         }
-    #     )
-    # )
-    # parada4 = forms.CharField(
-    #     label="Parada 1",
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder": "Insira o local da parada"
-    #         }
-    #     )
-    # )
     destino = forms.CharField(
         label="Destino",
         required=True,

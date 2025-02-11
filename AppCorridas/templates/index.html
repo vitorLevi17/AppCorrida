@@ -19,7 +19,7 @@
                 <circle cx="12" cy="7" r="4"></circle>
             </svg>
         </div>
-        <!-- Formulário Django -->
+        <!-- Formulário para receber o endereço, campos origem e destino -->
         <form method="POST">
             {% csrf_token %}
             <input
@@ -38,54 +38,30 @@
                 placeholder="Destino"
                 value="{{ form.destino.value|default:'' }}"
             >
-            <button type="button" class="add-stop-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-                Adicionar parada
-            </button>
 
-            <div class="vehicle-options">
-                <button class="vehicle-btn selected" onclick="selectVehicle(this, 'car')">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"></path>
-                        <circle cx="6.5" cy="16.5" r="2.5"></circle>
-                        <circle cx="16.5" cy="16.5" r="2.5"></circle>
-                    </svg>
-                </button>
-                <button class="vehicle-btn" onclick="selectVehicle(this, 'bike')">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 12h4l-4-8H8l4 8z"></path>
-                        <circle cx="5" cy="19" r="3"></circle>
-                        <circle cx="19" cy="19" r="3"></circle>
-                        <path d="M12 12v3m0 0 3 3m-3-3-3 3"></path>
-                    </svg>
-                </button>
-            </div>
 
+            <!-- Anuncios do google ads, codigo de acordo com a documentação fornecida -->
             <div class="ad-space">
                  Espaço para anúncios
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317477729559523"
-     crossorigin="anonymous"></script>
-<!-- Teste AppCorrida -->
-<ins class="adsbygoogle"
-     style="display:block;background-color:rgb(200,200,200)"
-     data-ad-client="ca-pub-7317477729559523"
-     data-ad-slot="4100789891"
-     data-ad-format="auto"
-     data-adteste="on"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317477729559523" crossorigin="anonymous"></script>
+
+            <ins class="adsbygoogle"
+                style="display:block;background-color:rgb(200,200,200)"
+                data-ad-client="ca-pub-7317477729559523"
+                data-ad-slot="4100789891"
+                data-ad-format="auto"
+                data-adteste="on"
+                data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
             <button type="submit" class="confirm-btn">Confirmar corrida</button>
 
-
         </form>
     </div>
+     <!-- Funcão para autocompletar o endereço a medida que o usuario digite -->
+    <!-- em 'types', é possivel restringir para cidades, paises entre outros -->
+    <!-- Endereços restritos para o Brasil -->
     <script>
         function initAutocomplete(){
             const input1 = document.getElementById("origem_campo")
