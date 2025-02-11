@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Rota da Corrida</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+
+            const startLat = {{ lat_origem }};
+            const startLng = {{ lon_origem }};
+            const endLat = {{ lat_destino }};
+            const endLng = {{ lon_destino }};
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: { lat: startLat, lng: startLng },
+            });0
+
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+
+            directionsService.route(
+                {
+                    origin: { lat: startLat, lng: startLng },
+                    destination: { lat: endLat, lng: endLng },
+                    travelMode: "DRIVING",
+                },
+                (response, status) => {
+                    if (status === "OK") {
+                        directionsRenderer.setDirections(response);
+                    } else {
+                        alert("Erro ao traçar a rota: " + status);
+                    }
+                }
+            );
+        }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{ MAPS }}&callback=initMap">
+    </script>
+</body>
+</html>
