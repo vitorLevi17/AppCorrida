@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppCorridas</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317477729559523"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="card">
+        <div class="user-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+        <div class="price-container"></div>
+            <h2>Comparativo de preços</h2>
+
+        <div class="price-card ">
+            <h3>InDriver</h3>
+            <p>R$ {{ driver }}</p>
+        </div>
+
+        <div class="price-card ">
+            <h3>99 Pop</h3>
+            <p>R$ {{ pop }}</p>
+        </div>
+
+        <div class="price-card ">
+            <h3>Uber</h3>
+            <p>R$ {{ uber }}</p>
+        </div>
+        <!-- Anuncios do google ads, codigo de acordo com a documentação fornecida -->
+            <div class="ad-space">
+                 Espaço para anúncios
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317477729559523" crossorigin="anonymous"></script>
+
+            <ins class="adsbygoogle"
+                style="display:block;background-color:rgb(200,200,200)"
+                data-ad-client="ca-pub-7317477729559523"
+                data-ad-slot="4100789891"
+                data-ad-format="auto"
+                data-adteste="on"
+                data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+</div>
+</body>
+</html>

@@ -33,7 +33,7 @@ def index(request):
             lon_destino = round(destino_data[0]['geometry']['location']['lng'], 6)
 
             #passar cordenadas para a view da rota atraves da url
-            return redirect(f'rota',lat_origem = lat_origem, lon_origem = lon_origem, lat_destino = lat_destino, lon_destino = lon_destino)
+            return redirect(f'comparar',lat_origem = lat_origem, lon_origem = lon_origem, lat_destino = lat_destino, lon_destino = lon_destino)
     return render(request,'index.html',{"form":form,"MAPS":maps})
 
 def rota(request,lat_origem,lon_origem,lat_destino,lon_destino):
@@ -48,3 +48,16 @@ def rota(request,lat_origem,lon_origem,lat_destino,lon_destino):
         "lon_destino": lon_destino,
     }
     return render(request,'rota.html',context)
+
+def comparar(request,lat_origem,lon_origem,lat_destino,lon_destino):
+    uber_valor = 12.57
+    pop_valor = 10.23
+    driver_valor = 9.98
+
+    precos = {
+        "uber":uber_valor,
+        "pop":pop_valor,
+        "driver":driver_valor,
+    }
+    return render(request,"comparar.html",precos)
+
