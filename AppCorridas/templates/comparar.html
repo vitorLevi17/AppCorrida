@@ -12,28 +12,26 @@
 </head>
 <body>
     <div class="card">
-        <div class="user-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-        </div>
         <div class="price-container"></div>
             <h2>Comparativo de preços</h2>
 
         <div class="price-card ">
             <h3>InDriver</h3>
             <p>R$ {{ driver }}</p>
+            <a href="https://indrive.com/pt-br"> <input type="button" value="inDriver"></a>
         </div>
 
         <div class="price-card ">
             <h3>99 Pop</h3>
             <p>R$ {{ pop }}</p>
+            <a href="https://99app.com/passageiro/99-pop/"> <input type="button" value="99Pop"></a>
         </div>
 
         <div class="price-card ">
             <h3>Uber</h3>
             <p>R$ {{ uber }}</p>
+            <a href="https://www.uber.com/br/pt-br/rider-home/"> <input type="button" value="Uber"></a>
+            <!--  `https://m.uber.com/go/product-selection?pickup=%7B%22latitude%22%3A${latitude}%2C%22longitude%22%3A${longitude}%7D&drop%5B0%5D=%7B%22latitude%22%3A-12.9543985%2C%22longitude%22%3A-38.3553874%7D`; -->
         </div>
         <!-- Anuncios do google ads, codigo de acordo com a documentação fornecida -->
             <div class="ad-space">

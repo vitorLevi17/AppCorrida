@@ -1,138 +1,68 @@
+/* Reset e configuração global */
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-            padding: 20px;
-        }
+/* Centraliza a página */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
 
-        .card {
-            background-color: #f4b860;
-            max-width: 400px;
-            width: 100%;
-            padding: 24px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+/* Estiliza o card principal */
+.card {
+    background-color: #f4b860;
+    max-width: 400px;
+    width: 100%;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        .user-icon {
-            background-color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+/* Alinha os preços horizontalmente */
+.price-container {
+    display: flex;
+    justify-content: space-around; /* Espaçamento uniforme */
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
 
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: none;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.9);
-            font-size: 16px;
-        }
+/* Estilização dos cards de preço */
+.price-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-        .add-stop-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
+/* Animação ao passar o mouse */
+.price-card:hover {
+    transform: scale(1.1);
+}
 
-        .vehicle-options {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
+/* Destacar a opção mais barata */
+.cheapest {
+    background: #4CAF50;
+    color: white;
+    border: 2px solid #388E3C;
+}
 
-        .vehicle-btn {
-            background-color: rgba(255, 255, 255, 0.5);
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .vehicle-btn.selected {
-            background-color: white;
-        }
-
-        .ad-space {
-            width: 100%;
-            height: 120px;
-            background-color: white;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .confirm-btn {
-            width: 100%;
-            padding: 16px;
-            background-color: #22c55e;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .confirm-btn:hover {
-            background-color: #16a34a;
-        }
-
-        button:hover {
-            opacity: 0.9;
-        }
-        .price-container {
-        text-align: center;
-        margin-top: 20px;
-        }
-
-        .price-card {
-            display: inline-block;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 10px;
-            width: 100px;
-            text-align: center;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .price-card:hover {
-            transform: scale(1.1);
-        }
-
-        .cheapest {
-            background: #4CAF50;
-            color: white;
-            border: 2px solid #388E3C;
-        }
+/* Responsividade: No celular, os preços ficam empilhados */
+@media (max-width: 600px) {
+    .price-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
