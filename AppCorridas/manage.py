@@ -2,8 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-#3-Enviar para os aplicativos e receber os preços
-#hospedar pythonanywhere -> anuncios 1/2 ->
+# 3-Enviar para os aplicativos e receber os preços
+# hospedar -> anuncios 1/2 ->
 # Adicionar parada
 def main():
     """Run administrative tasks."""
