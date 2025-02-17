@@ -18,20 +18,19 @@
         <div class="price-card ">
             <h3>InDriver</h3>
             <p>R$ {{ driver }}</p>
-            <a href="https://indrive.com/pt-br"> <input type="button" value="inDriver"></a>
+            <a href="https://indriver.com"> <input type="button" value="inDriver"></a>
         </div>
 
         <div class="price-card ">
             <h3>99 Pop</h3>
             <p>R$ {{ pop }}</p>
-            <a href="https://99app.com/passageiro/99-pop/"> <input type="button" value="99Pop"></a>
+            <a href="https://99app.com/passageiro/"> <input type="button" value="99Pop"></a>
         </div>
 
         <div class="price-card ">
             <h3>Uber</h3>
             <p>R$ {{ uber }}</p>
-            <a href="https://www.uber.com/br/pt-br/rider-home/"> <input type="button" value="Uber"></a>
-            <!--  `https://m.uber.com/go/product-selection?pickup=%7B%22latitude%22%3A${latitude}%2C%22longitude%22%3A${longitude}%7D&drop%5B0%5D=%7B%22latitude%22%3A-12.9543985%2C%22longitude%22%3A-38.3553874%7D`; -->
+            <a href="uber://?action=setPickup&pickup=my_location&dropoff[latitude]=LATITUDE&dropoff[longitude]=LONGITUDE"> <input type="button" value="Uber"></a>
         </div>
         <!-- Anuncios do google ads, codigo de acordo com a documentação fornecida -->
             <div class="ad-space">
