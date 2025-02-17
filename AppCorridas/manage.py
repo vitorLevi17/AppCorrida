@@ -3,8 +3,9 @@
 import os
 import sys
 # 3-Enviar para os aplicativos e receber os preços
-# estilos
-# hospedar -> anuncios 1/2 ->
+# estilos comparar.html
+# hospedar
+# anuncios
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'setup.settings')
