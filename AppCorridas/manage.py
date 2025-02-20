@@ -3,7 +3,6 @@
 import os
 import sys
 # 3-Enviar para os aplicativos e receber os preços
-# estilos comparar.html
 # hospedar
 # anuncios
 def main():
