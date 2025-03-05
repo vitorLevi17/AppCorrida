@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 mapas = googlemaps.Client(key=os.getenv('MAPS'))
-def calcularDistancia(origem,destino,maps):
+def calcularTempoDistancia(origem,destino,maps):
     url = "https://maps.googleapis.com/maps/api/distancematrix/json"
 
     params = {
@@ -21,17 +21,27 @@ def calcularDistancia(origem,destino,maps):
     response = requests.get(url,params)
     dados = response.json()
 
-    #Refatorar esse techo
-    if "rows" in dados and dados["rows"] and "elements" in dados["rows"][0]:
-        elemento = dados["rows"][0]["elements"][0]
+    elemento = dados.get("rows")[0].get("elements")[0]
+    #distancia_texto = elemento.get("distance").get("text")
+    distancia_valor = (elemento.get("distance").get("value")) / 1000
+    tempo = elemento.get("duration").get("text")
+    tempo_valor = elemento.get("duration").get("value")
 
-        if "distance" in elemento:
-            distancia_texto = elemento["distance"]["text"]
-            distancia_valor = elemento["distance"]["value"]
-        else:
-            distancia_texto = " "
-            distancia_valor = 0
-    else:
-        distancia_texto, distancia_valor = "Erro", 0
 
-    return distancia_texto, distancia_valor
+    #return distancia_texto, distancia_valor
+    return distancia_valor,tempo,tempo_valor
+
+
+def calculaUber(request):
+    # Preço base: R$ 3,05
+    # Preço mínimo: R$ 6,06
+    # + por minuto :R$ 0,23
+    # + por quilômetro: R$ 1,34
+    # Custo fixo: R$ 1,10
+    pass
+def calculaPop(request):
+    # + por km R$ 1, 14
+    # + por minuto R$ 0, 19
+    # tarifa base R$ 2, 38,
+    # preço mínimo R$ 5, 70
+    pass

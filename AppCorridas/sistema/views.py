@@ -4,7 +4,7 @@ from .forms import Corrida
 import googlemaps
 import os
 from dotenv import load_dotenv
-from .estimativas import calcularDistancia
+from .estimativas import calcularTempoDistancia
 
 #Carregar variaveis de ambiente e a key secret do google maps
 load_dotenv()
@@ -55,16 +55,17 @@ def comparar(request,lat_origem,lon_origem,lat_destino,lon_destino):
     origem = f"{lat_origem}, {lon_origem}"
     destino = f"{lat_destino}, {lon_destino}"
 
-    print(calcularDistancia(origem,destino,maps))
+    print(calcularTempoDistancia(origem,destino,maps))
+    #distancia = calcularDistancia(origem,destino,maps)
+
 
     uber_valor = 12.57
     pop_valor = 10.23
-    driver_valor = 9.98
+
 
     precos = {
         "uber":uber_valor,
         "pop":pop_valor,
-        "driver":driver_valor,
     }
     return render(request,"comparar.html",precos)
 
