@@ -1,14 +1,16 @@
+import requests
 from django.shortcuts import render,redirect
 from .forms import Corrida
 import googlemaps
 import os
 from dotenv import load_dotenv
+from .estimativas import calcularDistancia
 
 #Carregar variaveis de ambiente e a key secret do google maps
 load_dotenv()
 mapas = googlemaps.Client(key=os.getenv('MAPS'))
+maps = os.getenv('MAPS')
 def index(request):
-    maps = os.getenv('MAPS')
     form = Corrida()
 
     #Garantir que seja um POST
@@ -50,6 +52,11 @@ def rota(request,lat_origem,lon_origem,lat_destino,lon_destino):
     return render(request,'rota.html',context)
 
 def comparar(request,lat_origem,lon_origem,lat_destino,lon_destino):
+    origem = f"{lat_origem}, {lon_origem}"
+    destino = f"{lat_destino}, {lon_destino}"
+
+    print(calcularDistancia(origem,destino,maps))
+
     uber_valor = 12.57
     pop_valor = 10.23
     driver_valor = 9.98
