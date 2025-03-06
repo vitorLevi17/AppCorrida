@@ -1,6 +1,6 @@
 import os
+from datetime import datetime
 import googlemaps
-import requests
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -31,27 +31,41 @@ def calcularTempoDistancia(origem,destino,maps):
     #return distancia_texto, distancia_valor
     return distancia_valor,tempo,tempo_valor
 
-
-#localização, horário e condições do trânsito.
 def calculaUber(distancia,tempo):
+    """
+    Preço base: R$ 3,05
+    Preço mínimo: R$ 6,06
+    + por minuto :R$ 0,23
+    + por quilômetro: R$ 1,34
+    dinamico = Baseado no horario de maior quantidade de carros disponiveis
+    """
     preco_km = distancia * 1.34
     preco_minuto = tempo * 0.23
     preco_base = 3.05
     preco_min = 6.06
-    total = preco_km + preco_base + preco_min + preco_minuto
-    # Preço base: R$ 3,05
-    # Preço mínimo: R$ 6,06
-    # + por minuto :R$ 0,23
-    # + por quilômetro: R$ 1,34
-    return round(total)
+    if datetime.now().hour > 20 or datetime.now().hour < 6:
+        dinamico = 5
+        print(dinamico)
+    else:
+        dinamico = 1.1
+    total = preco_km + preco_base + preco_min + preco_minuto + dinamico
+    return round(total,2)
 def calculaPop(distancia,tempo):
+    """
+    + por km R$ 1, 14
+    + por minuto R$ 0, 19
+    tarifa base R$ 2, 38,
+    preço mínimo R$ 5, 70
+    dinamico = Baseado no horario de maior quantidade de carros disponiveis
+    """
     preco_km = distancia * 1.14
     preco_minuto = tempo * 0.19
     preco_base = 2.38
     preco_min = 5.70
-    total = preco_km + preco_base + preco_min + preco_minuto
-    # + por km R$ 1, 14
-    # + por minuto R$ 0, 19
-    # tarifa base R$ 2, 38,
-    # preço mínimo R$ 5, 70
-    return round(total)
+    if datetime.now().hour > 20 or datetime.now().hour < 6:
+        dinamico = 7.5
+        print(dinamico)
+    else:
+        dinamico = 1.5
+    total = preco_km + preco_base + preco_min + preco_minuto + dinamico
+    return round(total,2)

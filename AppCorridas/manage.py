@@ -3,7 +3,7 @@
 import os
 import sys
 # 3-Enviar para os aplicativos e receber os preços
-#"(calcular precos)
+# (Adicionar variaveis de aumento de preco horário e condições do trânsito.)
 # hospedar
 # anuncios
 def main():
