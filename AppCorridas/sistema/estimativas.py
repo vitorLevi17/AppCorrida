@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
 import googlemaps
+import requests
 from dotenv import load_dotenv
 load_dotenv()
 
