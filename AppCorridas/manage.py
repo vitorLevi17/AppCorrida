@@ -3,10 +3,7 @@
 import os
 import sys
 # 3-Enviar para os aplicativos e receber os preços
-#"(Alterar o estimativas.py)
-# 'rows': [{'elements': [{'distance': {'text': '627 km', 'value': 626790}, 'duration': {'text': '7 hours 35 mins', 'value': 27301},
-# 'rows': [{'elements': [{'distance': {'text': '627 km', 'value': 626790}, 'duration': {'text': '7 hours 35 mins', 'value': 27301},
-
+#"(calcular precos)
 # hospedar
 # anuncios
 def main():
