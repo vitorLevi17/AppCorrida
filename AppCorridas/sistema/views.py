@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render,redirect
 from .forms import Corrida
 import googlemaps
@@ -26,6 +27,9 @@ def index(request):
             origem_data = mapas.geocode(origem)
             destino_data = mapas.geocode(destino)
 
+            if not origem_data or not destino_data:
+                messages.error(request, "Endereço inválido. Verifique e tente novamente.")
+                return render(request, 'index.html', {"form": form, "MAPS": maps})
             #Pegar as cordenadas do endereço(latitude e longitude limitados a 6 caracteres) dos endereços fornecidos para calculo da rota
             lat_origem = round(origem_data[0]['geometry']['location']['lat'],6)
             lon_origem = round(origem_data[0]['geometry']['location']['lng'],6)
@@ -54,12 +58,10 @@ def comparar(request,lat_origem,lon_origem,lat_destino,lon_destino):
     origem = f"{lat_origem}, {lon_origem}"
     destino = f"{lat_destino}, {lon_destino}"
 
-    print(calcularTempoDistancia(origem,destino,maps))
     distancia, tempo_texto, tempo = calcularTempoDistancia(origem,destino,maps)
 
     uber_valor = calculaUber(distancia,tempo)
     pop_valor = calculaPop(distancia,tempo)
-
 
     precos = {
         "uber":uber_valor,
