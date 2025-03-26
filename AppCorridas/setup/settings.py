@@ -24,13 +24,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
 
-ALLOWED_HOSTS = [
-    #'*'
-]
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
-    #"https://75ea-179-105-129-73.ngrok-free.app",
+    "https://b7aa-179-105-129-57.ngrok-free.app",
 ]
 
 
