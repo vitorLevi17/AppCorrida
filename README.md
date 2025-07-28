@@ -1,7 +1,5 @@
 # AppCorridas
 
-![Solidário.com Logo]([https://via.placeholder.com/150](https://www.canva.com/design/DAGDtVg2D7k/JBPZSjbIb8UT0Wfz9wwnUw/edit))
-
 ## Descrição
 
 O AppCorridas é um sistema projetado para comparar preços entre carros de aplicativo(no caso atual, uber e 99 pop). Nosso objetivo é facilitar a escolhar da corrida de aplicativo.
